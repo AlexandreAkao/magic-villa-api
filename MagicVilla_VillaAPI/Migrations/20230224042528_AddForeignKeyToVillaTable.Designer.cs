@@ -4,6 +4,7 @@ using MagicVilla_VillaAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MagicVillaVillaAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230224042528_AddForeignKeyToVillaTable")]
+    partial class AddForeignKeyToVillaTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -63,7 +66,7 @@ namespace MagicVillaVillaAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Villas", (string)null);
+                    b.ToTable("Villas");
 
                     b.HasData(
                         new
@@ -155,7 +158,7 @@ namespace MagicVillaVillaAPI.Migrations
 
                     b.HasIndex("VillaId");
 
-                    b.ToTable("VillaNumbers", (string)null);
+                    b.ToTable("VillaNumbers");
                 });
 
             modelBuilder.Entity("MagicVilla_VillaAPI.Models.VillaNumber", b =>
