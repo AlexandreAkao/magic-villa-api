@@ -70,7 +70,7 @@ namespace MagicVilla_VillaAPI.Controllers
                     return NotFound(_response);
                 }
 
-                _response.Result = _mapper.Map<List<VillaDTO>>(villa);
+                _response.Result = _mapper.Map<VillaDTO>(villa);
                 _response.StatusCode = HttpStatusCode.OK;
                 return Ok(_response);
             }
@@ -93,7 +93,7 @@ namespace MagicVilla_VillaAPI.Controllers
             {
                 if (await _dbVilla.GetAsync(u => u.Name.ToLower() == createDTO.Name.ToLower()) != null)
                 {
-                    ModelState.AddModelError("CustomError", "Villa already Exists!");
+                    ModelState.AddModelError("ErrorMessages", "Villa already Exists!");
                     return BadRequest(ModelState);
                 }
                 if (createDTO == null)
