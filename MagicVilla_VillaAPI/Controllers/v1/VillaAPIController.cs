@@ -51,7 +51,7 @@ namespace MagicVilla_VillaAPI.Controllers.v1
         }
 
         [HttpGet("{id:int}", Name = "GetVilla")]
-        [ResponseCache(Duration = 30)]
+        [ResponseCache(CacheProfileName = "Default30")]
         //[ResponseCache(Location = ResponseCacheLocation.None, NoStore = true)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
